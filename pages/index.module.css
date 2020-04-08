@@ -1,0 +1,8 @@
+.error {
+  background-image: url("/images/lighter_white.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 200px;
+  transform: rotate(-90deg); 
+
+}
