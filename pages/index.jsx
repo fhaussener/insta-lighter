@@ -5,14 +5,8 @@ const Home = () => {
   const [inputValue, setInputValue] = React.useState("");
   const [responseValue, setResponseValue] = React.useState("");
 
-  const getFullSizeInstaImage = () => {
-    fetch("https://graph.instagram.com/{user-id}")
-      .then(res => console.log(res));
-  }
-
   const searchForInsta = () => {
-    const imageUrl = getFullSizeInstaImage();
-    setResponseValue(inputValue)
+    console.log("do some stuff")
   }
 
   return (
