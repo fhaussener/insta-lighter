@@ -1,8 +1,12 @@
-.error {
+.lighterImage {
   background-image: url("/images/lighter_white.png");
   background-repeat: no-repeat;
   background-size: contain;
-  height: 200px;
-  transform: rotate(-90deg); 
+  height: 450px;
+}
 
+.overlay {
+  position: absolute;
+  top: 200px;
+  left: 250px;
 }
