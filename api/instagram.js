@@ -7,6 +7,8 @@ async function getProfileInfo(req, res) {
   let urlFrag = pathname.split("/");
   let account = urlFrag[2];
 
+  console.log(account)
+
   const browser = await puppeteer.launch({
     args: chrome.args,
     executablePath: await chrome.executablePath,
@@ -52,13 +54,12 @@ async function getProfileInfo(req, res) {
   await browser.close();
 
   const response = {
-    'username': username,
-    'username_picture_url': usernamePictureUrl,
+    username: username,
+    username_picture_url: usernamePictureUrl,
   }
 
-  res.statusCode = 200;
   res.setHeader('Content-Type', `application/json`);
-  res.end(response);
+  res.status(200).json(response)
 }
 
 module.exports = getProfileInfo;
