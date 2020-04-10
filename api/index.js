@@ -4,7 +4,8 @@ const { parse } = require('url')
 module.exports = async function (req, res) {
   const { pathname = '/', query = {} } = parse(req.url, true);
   const { type = 'png' } = query; // png or jpeg
-  let url = pathname.slice(2);
+  let urlFrag = pathname.split("/");
+  let url = urlFrag[2];
   if (!url.startsWith('http')) {
     url = 'https://' + url; // add protocol if missing
   }
