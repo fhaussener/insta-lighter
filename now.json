@@ -4,6 +4,10 @@
     {
       "src": "/screen/(.*)",
       "dest": "/api/index.js"
+    },
+    {
+      "src": "/insta/(.*)",
+      "dest": "/api/instagram.js"
     }
   ]
 }
