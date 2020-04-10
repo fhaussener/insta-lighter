@@ -2,9 +2,9 @@ const getScreenshot = require('./screenshot');
 const { parse } = require('url')
 
 module.exports = async function (req, res) {
-  const { pathname = '/screen', query = {} } = parse(req.url, true);
+  const { pathname = '/', query = {} } = parse(req.url, true);
   const { type = 'png' } = query; // png or jpeg
-  let url = pathname.slice(1);
+  let url = pathname.slice(2);
   if (!url.startsWith('http')) {
     url = 'https://' + url; // add protocol if missing
   }
