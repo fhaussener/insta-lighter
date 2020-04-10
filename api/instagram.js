@@ -1,5 +1,6 @@
 const chrome = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
+const { parse } = require('url')
 
 async function getProfileInfo(req, res) {
   const { pathname = '/', query = {} } = parse(req.url, true);
