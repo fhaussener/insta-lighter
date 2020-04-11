@@ -1,17 +1,18 @@
 import Head from 'next/head'
 import styles from './index.module.css'
 
-
 const Home = () => {
   const [inputValue, setInputValue] = React.useState("");
-  const [responseValue, setResponseValue] = React.useState("");
+  const [username, setUsername] = React.useState("");
+  const [pictureUrl, setPictureUrl] = React.useState("");
 
   const searchForInsta = () => {
     fetch("/insta/" + inputValue)
       .then(res => res.json())
       .then(
         (result) => {
-          setResponseValue(result)
+          setUsername(result.username);
+          setPictureUrl(result.username_picture_url);
         },
       )
   }
@@ -30,7 +31,8 @@ const Home = () => {
         </div>
         <div className={styles.lighterImage}>
         </div>
-        <div className={styles.overlay}>{responseValue}</div>
+        <img style={{ "height": "50px" }} src={pictureUrl}></img>
+        <div className={styles.overlay}>{username}</div>
       </div>
     </div>
   )
