@@ -1,12 +1,19 @@
 import Head from 'next/head'
 import styles from './index.module.css'
 
+
 const Home = () => {
   const [inputValue, setInputValue] = React.useState("");
   const [responseValue, setResponseValue] = React.useState("");
 
   const searchForInsta = () => {
-    console.log("do some stuff")
+    fetch("/insta/" + inputValue)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setResponseValue(result)
+        },
+      )
   }
 
   return (
