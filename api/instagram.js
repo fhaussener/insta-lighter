@@ -2,25 +2,25 @@ const chrome = require('chrome-aws-lambda');
 const puppeteer = require('puppeteer-core');
 const { parse } = require('url')
 
-const isDev = process.env.NOW_REGION === 'dev1';
+// const isDev = process.env.NOW_REGION === 'dev1';
 
-export async function getOptions(isDev) {
-  let options
-  if (isDev) {
-    options = {
-      args: ['--start-maximized'],
-      executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-      headless: false
-    };
-  } else {
-    options = {
-      args: chrome.args,
-      executablePath: await chrome.executablePath,
-      headless: chrome.headless,
-    };
-  }
-  return options;
-}
+// export async function getOptions(isDev) {
+//   let options
+//   if (isDev) {
+//     options = {
+//       args: ['--start-maximized'],
+//       executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+//       headless: false
+//     };
+//   } else {
+//     options = {
+//       args: chrome.args,
+//       executablePath: await chrome.executablePath,
+//       headless: chrome.headless,
+//     };
+//   }
+//   return options;
+// }
 
 async function getProfileInfo(req, res) {
   const { pathname = '/', query = {} } = parse(req.url, true);
@@ -34,8 +34,8 @@ async function getProfileInfo(req, res) {
   });
 
   const page = await browser.newPage();
+  page.setDefaultTimeout(0);
 
-  // go to Instagram web profile (this example use Cristiano Ronaldo profile)
   await page.goto('https://instagram.com/' + account);
 
   // check username exists or not exists
