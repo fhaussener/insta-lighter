@@ -35,10 +35,11 @@ async function getProfileInfo(req, res) {
   });
 
   const page = await browser.newPage();
+  page.setDefaultTimeout(0)
 
   await page.goto('https://instagram.com/' + account);
-  await page.waitForSelector('header > section h2');
   await page.waitForSelector('header img');
+
 
   // check username exists or not exists
   let isUsernameNotFound = await page.evaluate(() => {
@@ -58,9 +59,9 @@ async function getProfileInfo(req, res) {
     return;
   }
 
-  let username = await page.evaluate(() => {
-    return document.querySelectorAll('header > section h2')[0].textContent;
-  });
+  // let username = await page.evaluate(() => {
+  //   return document.querySelectorAll('header > section h2')[0].textContent;
+  // });
 
 
   let usernamePictureUrl = await page.evaluate(() => {
@@ -71,7 +72,7 @@ async function getProfileInfo(req, res) {
   await browser.close();
 
   const response = {
-    username: username,
+    username: account,
     username_picture_url: usernamePictureUrl
   }
 

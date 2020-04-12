@@ -7,7 +7,7 @@ const Home = () => {
   const [pictureUrl, setPictureUrl] = React.useState("");
 
   const searchForInsta = () => {
-    fetch("/insta/" + inputValue)
+    fetch("/instav2/" + inputValue)
       .then(res => res.json())
       .then(
         (result) => {
