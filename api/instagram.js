@@ -58,9 +58,9 @@ async function getProfileInfo(req, res) {
   }
 
   // get username
-  let username = await page.evaluate(() => {
-    return document.querySelectorAll('header > section h2')[0].textContent;
-  });
+  // let username = await page.evaluate(() => {
+  //   return document.querySelectorAll('header > section h2')[0].textContent;
+  // });
 
 
   // get username picture URL
@@ -72,7 +72,7 @@ async function getProfileInfo(req, res) {
   await browser.close();
 
   const response = {
-    username: username,
+    username: account,
     username_picture_url: usernamePictureUrl,
   }
 
