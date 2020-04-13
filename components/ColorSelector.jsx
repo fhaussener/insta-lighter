@@ -3,9 +3,15 @@ import styles from "./ColorSelector.module.css";
 
 const ColorSelector = ({ onChange, selected }) => {
   return (
-    <div>
-      <div className={selected == "white" ? styles.selected : ""} onClick={() => onChange("white")}>white</div>
-      <div className={selected == "black" ? styles.selected : ""} onClick={() => onChange("black")}>black</div>
+    <div className={styles.container}>
+      <div onClick={() => onChange("white")}>
+        <div style={{ "border": selected == "white" ? "3px solid #2C96EA" : "3px solid transparent" }} className={styles.circleWhite}></div>
+        white
+      </div>
+      <div onClick={() => onChange("black")}>
+        <div style={{ "border": selected == "black" ? "3px solid #2C96EA" : "3px solid transparent" }} className={styles.circleBlack}></div>
+        black
+        </div>
     </div>
   );
 }

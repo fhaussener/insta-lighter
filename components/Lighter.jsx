@@ -8,7 +8,11 @@ const Lighter = ({ selectedColor, pictureUrl, accountName }) => {
         <div className={styles.overlayContainer}>
           <div style={{ "backgroundImage": `url(${pictureUrl})` }} className={styles.storyCircle}>
           </div>
-          <div style={{ "color": selectedColor === "black" ? "white" : "black" }} className={styles.account}>@{accountName}</div>
+          <div
+            style={{ "color": selectedColor === "black" ? "white" : "black" }}
+            className={styles.account}>
+            @{accountName ? accountName : "Your username"}
+          </div>
         </div>
       </div>
     </div>
