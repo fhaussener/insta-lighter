@@ -1,12 +1,5 @@
-.lighterImage {
-  background-image: url("/images/lighter_white.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-  height: 450px;
-}
-
-.overlay {
-  position: absolute;
-  top: 200px;
-  left: 250px;
+.header{
+  text-align: center;
+  font-size:24px;
+  height: 50px;
 }

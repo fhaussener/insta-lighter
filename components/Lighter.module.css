@@ -1,0 +1,51 @@
+.lighterImage {
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 450px;
+  background-position: center;
+}
+.overlayContainer {
+  position: absolute;
+  top: 548px;
+  left: 50%;
+  display: flex;
+  font-size:14px;
+  transform: translateX(-50%) translateY(-50%) rotate(-90deg)
+}
+  
+
+.storyCircle {
+  background-size: contain;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  border: 2px solid white;
+  margin: 2px;
+} 
+
+.storyCircle:after {
+  content: "\00a0";
+  background: linear-gradient(to bottom, #d82b7e, #f57939);
+  border-radius: 50%;
+  position: sticky;
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin-top: -4px;
+  margin-left: -4px;
+  z-index: -2;
+}
+
+.account{
+  margin-left:6px;
+  line-height: 48px;
+}
+
+.whiteText{
+  color:white;
+}
+
+.profileImg{
+  height: 40px;
+  border-radius: 50%;
+}

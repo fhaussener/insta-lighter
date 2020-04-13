@@ -1,21 +1,29 @@
-import Head from 'next/head'
-import styles from './index.module.css'
+import Head from 'next/head';
+import Logo from '../components/Logo'
+import ColorSelector from '../components/ColorSelector';
+import Lighter from '../components/Lighter';
+import SearchField from '../components/SearchField'
+import styles from './index.module.css';
 
 const Home = () => {
-  const [inputValue, setInputValue] = React.useState("");
-  const [username, setUsername] = React.useState("");
-  const [pictureUrl, setPictureUrl] = React.useState("");
+  const [username, setUsername] = React.useState("123456789fslrfkskskqqefgeniabm");
+  const [pictureUrl, setPictureUrl] = React.useState("http://racemph.com/wp-content/uploads/2016/09/profile-image-placeholder.png");
+  const [selectedColor, setSelectedColor] = React.useState("white");
 
-  const searchForInsta = () => {
-    fetch("/instav2/" + inputValue)
+  const searchForInsta = (value) => {
+    fetch("/instav2/" + value)
       .then(res => res.json())
       .then(
         (result) => {
-          console.log(result)
           setUsername(result.username);
           setPictureUrl(result.username_picture_url);
         },
       )
+  }
+
+  const handleColorSelection = (value) => {
+    console.log(value)
+    setSelectedColor(value)
   }
 
   return (
@@ -25,16 +33,21 @@ const Home = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <div>
-          <label for="fname">Search for your Instagram handle</label>
-          <input type="text" id="instaName" name="instaName" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
-          <button onClick={searchForInsta}>Search</button>
-        </div>
-        <div className={styles.lighterImage}>
-        </div>
-        <img style={{ "height": "50px" }} src={pictureUrl}></img>
-        <div className={styles.overlay}>{username}</div>
+        <Logo></Logo>
+        <div className={styles.header}>Get your Instagram handle printed on a lighter</div>
+        <SearchField onGenerate={(val) => searchForInsta(val)} />
+        <ColorSelector selected={selectedColor} onChange={(e) => handleColorSelection(e)} />
+        <Lighter
+          selectedColor={selectedColor}
+          pictureUrl={pictureUrl}
+          accountName={username}
+        />
       </div>
+      <style jsx global>{`
+        body {
+          background-color: #FCFCFC
+        }
+      `}</style>
     </div>
   )
 }

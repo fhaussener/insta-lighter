@@ -1,0 +1,30 @@
+.container{
+  width:100%;
+  text-align: center;
+}
+ 
+.search {
+  margin:10px;
+}
+
+.inputField {
+  margin:10px;
+  width:250px;
+  height: 36px;
+  border:none;
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  padding:10px;
+  font-size:20px;
+}
+
+.button {
+  margin: 4px;
+  background: linear-gradient(92.84deg, #FEDA75 -18.97%, #FA7E1E 9.05%, #D62976 44.08%, #962FBF 74.05%, #4F5BD5 100%);
+  box-shadow: 0px 4px 18px rgba(0, 0, 0, 0.25);
+  border-radius: 2px;
+  color:white;
+  font-size:16px;
+  padding:12px;
+  border:none;
+}

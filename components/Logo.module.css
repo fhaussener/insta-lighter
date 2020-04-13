@@ -1,0 +1,14 @@
+.container{
+  display: flex;
+  font-size: 24px;
+  width: 100%;
+  line-height: 48px;
+}
+
+.logoImg{
+  height: 48px;
+  width: 20px;
+  background-image: url("/images/logo.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
