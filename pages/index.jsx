@@ -47,7 +47,7 @@ const Home = () => {
     <div className="container">
       <Head>
         <title>Insta lighter</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <div>
         <Logo></Logo>
@@ -63,7 +63,7 @@ const Home = () => {
           pictureUrl={pictureUrl}
           accountName={username}
         />
-        {username ? <div onClick={handleBuy} className={styles.buyButton} ><span className={styles.textBtn}>Buy</span></div> : null}
+        {username ? <div onClick={handleBuy} className={styles.buyButton} ><span className={styles.textBtn}>Buy 6 for $26</span></div> : null}
       </div>
       <style jsx global>{`
         body {
