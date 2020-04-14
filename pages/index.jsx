@@ -4,12 +4,22 @@ import ColorSelector from '../components/ColorSelector';
 import Lighter from '../components/Lighter';
 import InstaChip from '../components/InstaChip';
 import SearchField from '../components/SearchField'
+import { Analytics } from "../lib/gAnalytics";
+
 import styles from './index.module.css';
 
+
+
 const Home = () => {
-  const [username, setUsername] = React.useState("fabio.haussenerss");
+  const [username, setUsername] = React.useState("");
   const [pictureUrl, setPictureUrl] = React.useState("http://racemph.com/wp-content/uploads/2016/09/profile-image-placeholder.png");
   const [selectedColor, setSelectedColor] = React.useState("white");
+  const [isGAInit, setIsGAInit] = React.useState(false)
+
+  if (!isGAInit) {
+    Analytics.logPageView('/');
+    setIsGAInit(true)
+  }
 
   const searchForInsta = (value) => {
     fetch("/instav2/" + value)
@@ -18,6 +28,7 @@ const Home = () => {
         (result) => {
           setUsername(result.username);
           setPictureUrl(result.username_picture_url);
+          Analytics.logEvent(result.username);
         },
       )
   }
@@ -51,12 +62,26 @@ const Home = () => {
           pictureUrl={pictureUrl}
           accountName={username}
         />
-        <div className={styles.buyButton} ><span className={styles.textBtn}>Buy</span></div>
+        {username ? <div className={styles.buyButton} ><span className={styles.textBtn}>Buy</span></div> : null}
+
       </div>
       <style jsx global>{`
         body {
-          background-color: #FCFCFC
+          background-color: #FCFCFC;
+          font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
+
+        @font-face {
+          font-family: 'Helvetica Neue';
+          src: url('/fonts/HelveticaNeueMed.ttf');
+          font-weight: medium;
+         }
+
+         @font-face {
+          font-family: 'Helvetica Neue';
+          src: url('/fonts/HelveticaNeueLt.ttf');
+          font-weight: 300;
+         }
       `}</style>
     </div>
   )

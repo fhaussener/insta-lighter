@@ -1,13 +1,14 @@
 .container{
   display: flex;
-  font-size: 24px;
+  font-size: 18px;
   width: 100%;
-  line-height: 48px;
+  line-height: 30px;
 }
 
 .logoImg{
-  height: 48px;
-  width: 20px;
+  height: 30px;
+  width: 10px;
+  margin-right: 4px;
   background-image: url("/images/logo.png");
   background-repeat: no-repeat;
   background-size: contain;

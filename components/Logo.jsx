@@ -4,7 +4,7 @@ import styles from "./Logo.module.css";
 const Logo = () => {
   return (
     <div className={styles.container}>
-      <span className={styles.logoImg} />Insta-lighter
+      <span className={styles.logoImg} />InstaLighter
     </div>
   );
 }
