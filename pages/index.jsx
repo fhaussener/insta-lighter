@@ -8,8 +8,6 @@ import { Analytics } from "../lib/gAnalytics";
 
 import styles from './index.module.css';
 
-
-
 const Home = () => {
   const [username, setUsername] = React.useState("");
   const [pictureUrl, setPictureUrl] = React.useState("http://racemph.com/wp-content/uploads/2016/09/profile-image-placeholder.png");
@@ -28,7 +26,7 @@ const Home = () => {
         (result) => {
           setUsername(result.username);
           setPictureUrl(result.username_picture_url);
-          Analytics.logEvent(result.username);
+          Analytics.logEvent("Search for instagram user", result.username);
         },
       )
   }
@@ -38,8 +36,11 @@ const Home = () => {
   }
 
   const handleColorSelection = (value) => {
-    console.log(value)
     setSelectedColor(value)
+  }
+
+  const handleBuy = () => {
+    Analytics.logEvent("Buy button clicked", username);
   }
 
   return (
@@ -62,8 +63,7 @@ const Home = () => {
           pictureUrl={pictureUrl}
           accountName={username}
         />
-        {username ? <div className={styles.buyButton} ><span className={styles.textBtn}>Buy</span></div> : null}
-
+        {username ? <div onClick={handleBuy} className={styles.buyButton} ><span className={styles.textBtn}>Buy</span></div> : null}
       </div>
       <style jsx global>{`
         body {
