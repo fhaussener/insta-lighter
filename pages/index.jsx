@@ -41,6 +41,7 @@ const Home = () => {
 
   const handleBuy = () => {
     Analytics.logEvent("Buy button clicked", username);
+    window.location.href = 'https://mailchi.mp/4e48f58669f1/baxqrf88yb';
   }
 
   return (
