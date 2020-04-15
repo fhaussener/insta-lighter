@@ -49,3 +49,10 @@
   height: 40px;
   border-radius: 50%;
 }
+
+.verified {
+  width: 18px;
+  background:url('/images/verified.png') no-repeat left center;
+  background-size: contain;
+  margin-left: 4px;
+}

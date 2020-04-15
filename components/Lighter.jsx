@@ -13,6 +13,7 @@ const Lighter = ({ selectedColor, pictureUrl, accountName }) => {
             className={styles.account}>
             @{accountName ? accountName : "Your username"}
           </div>
+          <div className={styles.verified}></div>
         </div>
       </div>
     </div>
