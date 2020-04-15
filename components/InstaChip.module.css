@@ -3,17 +3,23 @@
   border-radius: 24px;
   padding: 8px 12px;
   font-size: 18px;
-  display: inline;
-}
-
-.insta {
-  background:url('/images/icon.png') no-repeat left center;
-  background-size: contain;
-  padding-left:28px;
+  display: inline-flex;
 }
 
 .close {
-  background:url('/images/close.svg') no-repeat left center;
-  padding-left:32px;
+  width: 21px;
+  background-image:url('/images/close.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  margin-right: 14px;
 }
+
+.insta {
+  width: 21px;
+  background:url('/images/icon.png') no-repeat left center;
+  background-size: contain;
+  margin-right: 4px;
+}
+
+
 
