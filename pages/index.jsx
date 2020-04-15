@@ -8,9 +8,11 @@ import { Analytics } from "../lib/gAnalytics";
 
 import styles from './index.module.css';
 
+const avatarImg = "https://pwco.com.sg/wp-content/uploads/Generic-Profile-Placeholder-v3.png"
+
 const Home = () => {
   const [username, setUsername] = React.useState("");
-  const [pictureUrl, setPictureUrl] = React.useState("http://racemph.com/wp-content/uploads/2016/09/profile-image-placeholder.png");
+  const [pictureUrl, setPictureUrl] = React.useState(avatarImg);
   const [selectedColor, setSelectedColor] = React.useState("white");
   const [isGAInit, setIsGAInit] = React.useState(false)
 
@@ -32,7 +34,7 @@ const Home = () => {
   }
   const handleClose = () => {
     setUsername("");
-    setPictureUrl("http://racemph.com/wp-content/uploads/2016/09/profile-image-placeholder.png")
+    setPictureUrl(avatarImg)
   }
 
   const handleColorSelection = (value) => {
