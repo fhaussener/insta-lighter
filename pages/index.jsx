@@ -22,7 +22,7 @@ const Home = () => {
   }
 
   const searchForInsta = (value) => {
-    fetch("/instav2/" + value)
+    fetch("/insta/" + value)
       .then(res => res.json())
       .then(
         (result) => {
