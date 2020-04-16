@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-async function getUserInfo(req, res) {
+async function getInfo(req, res) {
   const pathname = req.url
   let urlFrag = pathname.split("/");
   let account = urlFrag[2];
@@ -18,4 +18,4 @@ async function getUserInfo(req, res) {
   res.status(200).json(response);
 }
 
-module.exports = getUserInfo;
+module.exports = getInfo;

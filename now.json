@@ -1,9 +1,9 @@
 {
-  "version": 2,
+  "version": 3,
   "routes": [
     {
-      "src": "/insta/(.*)",
-      "dest": "/api/instagram.js"
+      "src": "/instagram/(.*)",
+      "dest": "/api/insta.js"
     }
   ]
 }
